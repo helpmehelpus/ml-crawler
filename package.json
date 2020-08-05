@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/helpmehelpus/ml-crawler/issues"
   },
-  "homepage": "https://github.com/helpmehelpus/ml-crawler#readme"
+  "homepage": "https://github.com/helpmehelpus/ml-crawler#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
