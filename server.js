@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const crawler = require('./routes/crawler.router');
 
 const app = express();
 
@@ -10,5 +11,7 @@ const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Running server on port ${PORT}`);
 });
+
+app.use('/search', crawler);
 
 module.exports = app;
