@@ -1,8 +1,5 @@
 const express = require('express');
 
-const Crawler = require('../controllers/crawler');
-const crawler = new Crawler();
-
 const scraper = require('../controllers/scraper');
 
 const router = express.Router();
