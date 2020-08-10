@@ -31,7 +31,7 @@ exports.scrape = async (queryString, limit, deepSearch = false) => {
 
     if (deepSearch) {
       logger.info(`Crawling deep into products' pages`);
-      const results = await pMap(products, processProductPage, { concurrency: 3 });
+      const results = await pMap(products, processProductPage, { concurrency: 7 });
       return results;
     }
     logger.info('Successfully crawled store names and locations');
@@ -66,9 +66,10 @@ async function processProductPage (product) {
       storePage$ = await fetchData(storeLink);
       storeName = storePage$('#store-info__name').text();
       location = storePage$('.location-subtitle').text().split(',')[1].trim().replace(".", "");
+      logger.info(`Successfully crawled store names and locations`);
+    } else {
+      logger.info('Unable to find store link, moving on to next page');
     }
-
-    logger.info(`Successfully crawled store names and locations`);
 
     return {
       ...product,
