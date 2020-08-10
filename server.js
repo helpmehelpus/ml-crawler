@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 
 const PORT = 8080;
 app.listen(PORT, () => {
-  console.log(`Running server on port ${PORT}`);
+  winston.info(`Running server on port ${PORT}`);
 });
 
 app.use(morgan('combined', { stream: winston.stream }));
